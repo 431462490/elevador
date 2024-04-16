@@ -1,0 +1,75 @@
+public class elevador {
+private int andarAtual;
+private int totalAndares;
+private int capacidade;
+private int pessoasPresentes;
+
+  public Elevador(int capacidade, int totalAndares) {
+    this.capacidade = capacidade;
+    this.totalAndares = totalAndares;
+    this.andarAtual = 0;
+    this.pessoasPresentes = 0;
+  }
+
+  public void entrar() {
+    if (pessoasPresentes < capacidade) {
+        pessoasPresentes++;
+        System.out.println("Uma pessoa entrou no elevador.");
+    } else {
+        System.out.println("O elevador está cheio. Não é possível entrar mais pessoas.");
+    }
+  }
+
+  public void sair() {
+    if (pessoasPresentes > 0) {
+        pessoasPresentes--;
+        System.out.println("Uma pessoa saiu do elevador.");
+    } else {
+        System.out.println("O elevador está vazio. Não há ninguém para sair.");
+      }
+  }
+
+    public void subir() {
+    if (andarAtual < totalAndares) {
+        andarAtual++;
+        System.out.println("O elevador subiu para o andar " + andarAtual);
+    } else {
+        System.out.println("O elevador já está no último andar.");
+      }
+  }
+
+  public void descer() {
+    if (andarAtual > 0) {
+        andarAtual--;
+        System.out.println("O elevador desceu para o andar " + andarAtual);
+    } else {
+        System.out.println("O elevador já está no térreo.");
+      }
+  }
+
+// Métodos getter para acessar informações do elevador
+  public int getAndarAtual() {
+    return andarAtual;
+  }
+
+  public int getTotalAndares() {
+    return totalAndares;
+  }
+
+  public int getCapacidade() {
+    return capacidade;
+  }
+
+  public int getPessoasPresentes() {
+    return pessoasPresentes;
+  }
+public static void main(String[] args) {
+        Elevador elevador = new Elevador(10, 15); // Capacidade de 10 pessoas, 15 andares no prédio
+        elevador.entrar(); // Entra uma pessoa
+        elevador.subir(); // Sobir um andar
+        elevador.entrar(); // Entra mais uma pessoa
+        elevador.subir(); // Sobir um andar
+        elevador.sair(); // Sai uma pessoa
+        elevador.descer(); // Desce um andar
+    
+}
